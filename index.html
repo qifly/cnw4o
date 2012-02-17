@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh_CN">
+  <head>
+    <script>
+      window.addEventListener("load", function(){
+        var theButton;
+        var ToolbarUIItemProperties = {
+          title: "天气预报",
+          icon: "cnw4o.png",
+          popup: {
+            href: "popup.html",
+            width: 260,
+            height: 300
+          }
+        }
+        theButton = opera.contexts.toolbar.createItem(ToolbarUIItemProperties);
+        opera.contexts.toolbar.addItem(theButton);
+      }, false);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

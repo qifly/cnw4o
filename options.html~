@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>请设置城市代码</title>
+</head>
+<body>
+城市代码：<input type="text" id="txtCity"><input type="button" value="确定" onclick="save()">
+<div id="status"></div>
+<script>
+function save() {
+  widget.preferences.backgroundColor=document.getElementById('txtCity').value;
+  document.getElementById('status').innerHTML="已保存。"
+}
+</script>
+</body>
+</html>
