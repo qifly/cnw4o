@@ -4,5 +4,5 @@
   <description>使用中国天气网数据的天气预报。</description>
   <author href="http://www.uulinux.tk">uuLinux</author>
   <access origin="http://m.weather.com.cn" subdomains="true"/>
-  <icon src="cnw4o.png"/>
+  <icon src="cnw4ob.png"/>
 </widget>
