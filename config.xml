@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" version="1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" version="1.1-beta">
   <name>天气预报</name>
   <description>使用中国天气网数据的天气预报。</description>
-  <author href="http://www.uulinux.tk">uuLinux</author>
-  <access origin="http://m.weather.com.cn" subdomains="true"/>
+  <author href="http://www.qfly.cn/cnw4o/">uuLinux</author>
+  <access origin="http://weather.com.cn" subdomains="true"/>
   <icon src="cnw4ob.png"/>
 </widget>

@@ -1,20 +1,29 @@
 <html>
   <head>
-    <title>请设置城市代码</title>
+    <title>请设置默认地区</title>
   </head>
   <body onload="init();">
-    城市代码：<input type="text" id="txtCity"><input type="button" value="确定" onclick="save();">
-    <div id="status"></div>
+    <script type="text/javascript" src="function.js"></script>
+    <select id="province" onchange="GetCity(this);"></select>
+    <select id="city" onchange="GetCounty(this);"></select>
+    <select id="county" onchange="GetCountyId(this);"></select>
+    <select id="countyid" onchange="SetCityId(this);"></select>
+    <br /><br />
+    <div id="info"></div>
+    <br />
+    设置新默认地区：<input type="text" id="txtcname">-<input type="text" id="txtcid"><input type="button" value="确定" onclick="SaveToDefault();">
+    <div id="statubar"></div>
     <script>
       function init() {
-        if (!widget.preferences.defaultcity)
-          widget.preferences.defaultcity='101161002';
-        document.getElementById('txtCity').value=widget.preferences.defaultcity;
+        GetProvince('province');
+        if (!widget.preferences.dcid) {
+          widget.preferences.dcid='101161002';
+          widget.preferences.dcname='成县';
+        };
+        document.getElementById('info').innerHTML='当前默认地区为：'+widget.preferences.dcname+'-'+widget.preferences.dcid;
       }
-
-      function save() {
-        widget.preferences.defaultcity=document.getElementById('txtCity').value;
-        document.getElementById('status').innerHTML="已保存。"
+      function SetCityId(obj) {
+        document.getElementById('txtcid').value=obj.options[obj.selectedIndex].text;
       }
     </script>
   </body>
