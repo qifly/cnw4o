@@ -20,12 +20,17 @@ function MakeRequest(url) {
 };
 
 function GetDefaultUrl(){
+  if (!widget.preferences.dcid)
+    {
+      widget.preferences.dcid="101161002";
+      widget.preferences.dcname="成县";
+    };
   return 'http://m.weather.com.cn/data/'+widget.preferences.dcid+'.html';
 }
 
 
 function RenderToHtml(jsonstr){
-  var json = eval("(" + jsonstr + ")");
+  json=JSON.parse(jsonstr,null);
   document.getElementById('city').innerHTML=json.weatherinfo.city;
   document.getElementById('date_y').innerHTML=json.weatherinfo.date_y+'&nbsp;&nbsp;'+json.weatherinfo.week;
   document.getElementById('weather1').innerHTML=json.weatherinfo.weather1+'&nbsp;&nbsp;'+json.weatherinfo.temp1;
@@ -62,7 +67,6 @@ function GetCountyId(obj) {
 };
 
 function MakeList(value,obj) {
-  //document.write(value);
   var url="http://www.weather.com.cn/data/list3/city"+value+".xml";
   var lst=document.getElementById(obj);
   lst.options.length=0;
