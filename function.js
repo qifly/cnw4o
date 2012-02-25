@@ -88,15 +88,14 @@ function MakeList(value,obj) {
 
 function Message(msg) {
   var sb=document.getElementById('statubar');
-  //  sb.style.visibility='visible';
   sb.innerHTML=msg;
-  //  sb.style.visibility='hidden';
-
+  sb.style.display="";
+  setTimeout('document.getElementById("statubar").style.display="none"',3000);
 }
 
 function SaveToDefault() {
   widget.preferences.dcname=document.getElementById('txtcname').value;
   widget.preferences.dcid=document.getElementById('txtcid').value;
-  Message("已保存。");
+  Message("新位置已保存。");
 }
 

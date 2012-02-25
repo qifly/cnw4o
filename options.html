@@ -1,30 +1,61 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="zh">
   <head>
-    <title>请设置默认地区</title>
+    <meta charset="UTF-8">
+    <title>天气预报-首选项</title>
   </head>
   <body onload="init();">
+    <link rel=stylesheet type="text/css" href="option.css">
     <script type="text/javascript" src="function.js"></script>
-    <select id="province" onchange="GetCity(this);"></select>
-    <select id="city" onchange="GetCounty(this);"></select>
-    <select id="county" onchange="GetCountyId(this);"></select>
-    <select id="countyid" onchange="SetCityId(this);"></select>
-    <br /><br />
-    <div id="info"></div>
-    <br />
-    设置新默认地区：<input type="text" id="txtcname">-<input type="text" id="txtcid"><input type="button" value="确定" onclick="SaveToDefault();">
-    <div id="statubar"></div>
     <script>
       function init() {
+        document.getElementById('statubar').style.display="none";
         GetProvince('province');
         if (!widget.preferences.dcid) {
           widget.preferences.dcid='101161002';
           widget.preferences.dcname='成县';
         };
-        document.getElementById('info').innerHTML='当前默认地区为：'+widget.preferences.dcname+'-'+widget.preferences.dcid;
+        document.getElementById('info').innerHTML='当前默认位置：'+widget.preferences.dcname+'-'+widget.preferences.dcid;
       }
       function SetCityId(obj) {
         document.getElementById('txtcid').value=obj.options[obj.selectedIndex].text;
       }
     </script>
+
+    <div class="box">
+      <div id="statubar" class="statubar"></div>
+      <div class="pbox header">
+        <span class="tbox"><img src="cnw4ob.png"></img></span>
+        <span class="tbox">感谢您使用CNw4o，CNw4o致力于为您提供简洁方便的天气预报。<br>
+          China weather forcast extension for Opera.<br>
+          版本:1.2</span>
+      </div>
+      <div class="pbox">
+        <div class="tbox"><span class="title">位置设置</span></div>
+        <div class="tbox">
+          <div id="info">当前默认位置：</div><br />
+          <select id="province" onchange="GetCity(this);"></select>
+          <select id="city" onchange="GetCounty(this);"></select>
+          <select id="county" onchange="GetCountyId(this);"></select>
+          <select id="countyid" onchange="SetCityId(this);"></select>
+          <br /> <br />
+          设置新默认位置：<input type="text" id="txtcname" readonly="true">-<input type="text" id="txtcid" readonly="true"><input type="button" value="确定" onclick="SaveToDefault();">
+        </div>
+      </div>
+      <div class="pbox">
+        <div class="tbox title">请您参与</div>
+        <div class="tbox">
+          如果您有兴趣，并有想法让它更好用，我们会为此感到非常高兴。<br>网站<a href="http://www.qfly.cn/cnw4o">http://www.qfly.cn/cnw4o</a>可以浏览最新信息。<br>想法和建议请发邮件<a href="mailto:batchren@gmail.com">batchren@gmail.com</a><br>或者<a href="https://github.com/qifly/cnw4o">https://github.com/qifly/cnw4o</a>您可以直接参与开发。
+        </div>
+      </div>
+      <div class="pbox">
+        <div class="tbox title">特别致谢</div>
+        <div class="tbox">
+          首先感谢您的使用！<br>下面是优秀建议和突出贡献的人员名单（排名不分先后,仅列出最近60名），让我们感谢TA们的无私奉献！<br>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
+
+
