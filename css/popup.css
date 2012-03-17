@@ -1,0 +1,75 @@
+* {
+    margin:0px;
+    padding:0px;
+}
+
+body {
+    font-family:"WenQuanYi Zen Hei",宋体,serif,sans,monospace;
+    font-size:14px;
+    margin:0 auto;
+    width:400px;
+}
+
+h1 {
+    font-size:24px;
+    font-weight:bold;
+    display:inline;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+h2 {
+    font-size:14px;
+    font-weight:normal;
+    display:inline;
+}
+
+.mainbox {
+    width:398px;
+}
+
+.titlebox {
+    background-color:#BEEB9F;
+    margin:0px auto 5px auto;
+    overflow:auto;
+    padding:3px 10px;
+    border-radius:3px;
+    box-shadow:2px 3px 3px gray;
+}
+
+.daybox {
+    width:121px;
+    margin-top:1px;
+    margin-bottom:6px;
+    margin-left:2px;
+    margin-right:3px;
+    float:left;
+    text-align:center;
+    padding:3px;
+    overflow:auto;
+    background-position:center;
+    background-repeat:no-repeat;
+    border-radius:3px;
+    box-shadow:2px 3px 3px gray;
+}
+
+.indexbox {
+    float:left;
+    min-width:199px;
+}
+
+#day1 {
+    background-image:url(../imgs/24h.png);
+}
+
+#day2 {
+    background-image:url(../imgs/48h.png);
+}
+
+#day3 {
+    background-image:url(../imgs/72h.png);
+}
+
+.floatfix {
+    clear:both;
+}

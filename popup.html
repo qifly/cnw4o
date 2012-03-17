@@ -1,28 +1,47 @@
-<!doctype html>
-<html lang="zh_CN">
-  <head>
-    <title>天气预报</title>
-    <link rel=stylesheet type="text/css" href="style.css">
-  </head>
-  <body>
-    <script type="text/javascript" src="function.js"></script>
-    <div class="main">
-      <div class="line single title" id="city">载入中...</div>
-      <div class="line" id="date_y"></div>
-      <div class="line single" id="weather1"></div>
-      <div class="line" id="wind1">风力</div>      
-      <span class="halfline label">舒适度指数：</span><span class="halfline report" id='index_co'></span>
-      <span class="halfline label">穿衣指数：</span><span class="halfline report" id='index'></span>
-      <span class="halfline label">紫外线指数：</span><span class="halfline report" id='index_uv'></span>
-      <span class="halfline label">晨练指数：</span><span class="halfline report" id='index_cl'></span>
-      <span class="halfline label">洗车指数：</span><span class="halfline report" id='index_xc'></span>
-      <span class="halfline label">晾晒指数：</span><span class="halfline report" id='index_ls'></span>
-      <span class="halfline label">旅游指数：</span><span class="halfline report" id='index_tr'></span>
-      <span class="halfline label">息斯敏过敏指数：</span><span class="halfline report" id="index_ag"></span>
-      <div class="line">温馨提示：</div>
-      <div class="line single" id="index_d"></div>      
-    </div>
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>天气预报</title>
+<link rel="stylesheet" type="text/css" href="css/popup.css" />
+<script type="text/javascript" src="function.js"></script>
+</head>
+<body>
+        <div class="mainbox">
+            <div class="titlebox">
+             <h1 id="city">载入中......</h1>
+	     <h2 id="date_y"></h2>
+            </div>
+            <div class="titlebox" id="sk">
+            </div>
+	    <div>
+              <div class="daybox" id="day1">
+              </div>
+              <div class="daybox" id="day2">
+              </div>
+              <div class="daybox" id="day3">
+              </div>
+            </div>
+            <div class="titlebox floatfix">
+              <span id="index_co" class="indexbox"></span>
+              <span id="index" class="indexbox"></span>
+              <span id="index_uv" class="indexbox"></span>
+              <span id="index_cl" class="indexbox"></span>
+              <span id="index_xc" class="indexbox"></span>
+              <span id="index_ls" class="indexbox"></span>
+              <span id="index_tr" class="indexbox"></span>
+              <span id="index_ag" class="indexbox"></span>
+              <span id="index_d"></span>
+            </div>
+            <div class="titlebox" id="day46">
+            </div>
     <script>
+      var json=MakeRequest(GetDefaultSkUrl());
+      if (json) {
+        RenderSkToHtml(json);
+      }
+      else
+      document.getElementById('city').innerHTML="<font color='red'>请求数据错误,请重试。</font>";      
       var json=MakeRequest(GetDefaultUrl());
       if (json) {
         RenderToHtml(json);
@@ -30,5 +49,5 @@
       else
       document.getElementById('city').innerHTML="<font color='red'>请求数据错误,请重试。</font>";
     </script>
-  </body>
+</body>
 </html>

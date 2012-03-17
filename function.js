@@ -28,22 +28,44 @@ function GetDefaultUrl(){
   return 'http://m.weather.com.cn/data/'+widget.preferences.dcid+'.html';
 }
 
+function GetDefaultSkUrl(){
+  if (!widget.preferences.dcid)
+    {
+      widget.preferences.dcid="101161002";
+      widget.preferences.dcname="成县";
+    };
+  return 'http://www.weather.com.cn/data/sk/'+widget.preferences.dcid+'.html';
+}
+
+function RenderSkToHtml(jsonstr){
+    json=JSON.parse(jsonstr,null);
+    with (json.weatherinfo)
+	document.getElementById("sk").innerHTML="当前实况 <span style='font-weight:bold'>"+temp+"℃&nbsp;&nbsp;"+WD+WS+"&nbsp;&nbsp;相对湿度："+SD+"&nbsp;&nbsp;"+time+" 更新</span>";
+}
 
 function RenderToHtml(jsonstr){
   json=JSON.parse(jsonstr,null);
   document.getElementById('city').innerHTML=json.weatherinfo.city;
   document.getElementById('date_y').innerHTML=json.weatherinfo.date_y+'&nbsp;&nbsp;'+json.weatherinfo.week;
-  document.getElementById('weather1').innerHTML=json.weatherinfo.weather1+'&nbsp;&nbsp;'+json.weatherinfo.temp1;
-  document.getElementById('wind1').innerHTML=json.weatherinfo.wind1+'&nbsp;&nbsp;'+json.weatherinfo.fl1;
-  document.getElementById('index_co').innerHTML=json.weatherinfo.index_co;
-  document.getElementById('index').innerHTML=json.weatherinfo.index;
-  document.getElementById('index_uv').innerHTML=json.weatherinfo.index_uv;
-  document.getElementById('index_cl').innerHTML=json.weatherinfo.index_cl;
-  document.getElementById('index_xc').innerHTML=json.weatherinfo.index_xc;
-  document.getElementById('index_ls').innerHTML=json.weatherinfo.index_ls;
-  document.getElementById('index_tr').innerHTML=json.weatherinfo.index_tr;
-  document.getElementById('index_ag').innerHTML=json.weatherinfo.index_ag;
-  document.getElementById('index_d').innerHTML=json.weatherinfo.index_d;
+    with (json.weatherinfo){
+	var day1=weather1+"<br>"+temp1+"<br>"+wind1+"<br>"+fl1;
+	var day2=weather2+"<br>"+temp2+"<br>"+wind2+"<br>"+fl2;
+	var day3=weather3+"<br>"+temp3+"<br>"+wind3+"<br>"+fl3;
+	var day46="未来4-6天预报  仅供参考：<br>"+weather4+temp4+"    "+weather5+temp5+"    "+weather6+temp6;
+	document.getElementById("index_co").innerHTML="舒适度指数："+index_co;
+	document.getElementById("index").innerHTML="穿衣指数："+index;
+        document.getElementById("index_uv").innerHTML="紫外线指数："+index_uv;
+	document.getElementById("index_cl").innerHTML="晨练指数："+index_cl;
+	document.getElementById("index_xc").innerHTML="洗车指数："+index_xc;
+	document.getElementById("index_ls").innerHTML="晾晒指数："+index_ls;
+	document.getElementById("index_tr").innerHTML="旅游指数："+index_tr;
+	document.getElementById("index_ag").innerHTML="息斯敏过敏指数："+index_ag;
+	document.getElementById("index_d").innerHTML= "温馨提示：<br>"+index_d;
+    }
+    document.getElementById('day1').innerHTML=day1;
+    document.getElementById('day2').innerHTML=day2;
+    document.getElementById('day3').innerHTML=day3;
+    document.getElementById('day46').innerHTML=day46;
 };
 
 function GetProvince() {

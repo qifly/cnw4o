@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" version="1.2">
+<widget xmlns="http://www.w3.org/ns/widgets" version="1.3" id="https://addons.opera.com/zh-cn/addons/extensions/details/tian-qi-yu-bao">
   <name>天气预报</name>
   <description>使用中国天气网数据的天气预报。</description>
   <author href="http://www.qfly.cn/cnw4o/" email="batchren@gmail.com">uuLinux</author>
   <license href="http://www.apache.org/licenses/LICENSE-2.0">
-    Copyright 2011 Erik the Viking
+    Copyright 2011 uuLinux 
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
