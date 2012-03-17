@@ -6,7 +6,7 @@
   </head>
   <body onload="init();">
     <link rel=stylesheet type="text/css" href="option.css">
-    <script type="text/javascript" src="function.js"></script>
+    <script type="text/javascript" src="css/function.js"></script>
     <script>
       function init() {
         document.getElementById('statubar').style.display="none";
@@ -15,7 +15,7 @@
           widget.preferences.dcid='101161002';
           widget.preferences.dcname='成县';
         };
-        document.getElementById('info').innerHTML='当前默认位置：'+widget.preferences.dcname+'-'+widget.preferences.dcid;
+        document.getElementById('info').innerHTML='当前默认位置：'+widget.preferences.dcname;
       }
       function SetCityId(obj) {
         document.getElementById('txtcid').value=obj.options[obj.selectedIndex].text;
