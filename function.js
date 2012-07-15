@@ -121,6 +121,6 @@ function Message(msg) {
 function SaveToDefault() {
   widget.preferences.dcname=document.getElementById('txtcname').value;
   widget.preferences.dcid=document.getElementById('txtcid').value;
+  document.getElementById('info').innerHTML='当前默认位置：'+widget.preferences.dcname;
   Message("新位置已保存。");
 }
-
