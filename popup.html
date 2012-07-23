@@ -1,53 +1,118 @@
 <!DOCTYPE HTML>
 <html lang="zh">
-<head>
-	<meta charset="UTF-8">
-	<title>天气预报</title>
-<link rel="stylesheet" type="text/css" href="css/popup.css" />
-<script type="text/javascript" src="function.js"></script>
-</head>
-<body>
-        <div class="mainbox">
-            <div class="titlebox">
-             <h1 id="city">载入中......</h1>
-	         <h2 id="date_y"></h2>
-            </div>
-            <div class="titlebox" id="sk">
-            </div>
-	    <div>
-              <div class="daybox" id="day1">
-              </div>
-              <div class="daybox" id="day2">
-              </div>
-              <div class="daybox" id="day3">
-              </div>
-            </div>
-            <div class="titlebox floatfix">
-              <span id="index_co" class="indexbox"></span>
-              <span id="index" class="indexbox"></span>
-              <span id="index_uv" class="indexbox"></span>
-              <span id="index_cl" class="indexbox"></span>
-              <span id="index_xc" class="indexbox"></span>
-              <span id="index_ls" class="indexbox"></span>
-              <span id="index_tr" class="indexbox"></span>
-              <span id="index_ag" class="indexbox"></span>
-              <span id="index_d"></span>
-            </div>
-            <div class="titlebox" id="day46">
-            </div>
-    <script>
-      var json=MakeRequest(GetDefaultSkUrl());
-      if (json) {
-        RenderSkToHtml(json);
-      }
-      else
-      document.getElementById('city').innerHTML="<font color='red'>请求数据错误,请重试。</font>";      
-      var json=MakeRequest(GetDefaultUrl());
-      if (json) {
-        RenderToHtml(json);
-      }
-      else
-      document.getElementById('city').innerHTML="<font color='red'>请求数据错误,请重试。</font>";
-    </script>
+  <head>
+    <meta charset="UTF-8">
+    <title>天气预报</title>
+    <link rel="stylesheet" type="text/css" href="css/popup.css" />
+    <script type="text/javascript" src="function.js"></script>
+    <style type="text/css">
+      * {font-size:12px;font-family:Verdana,Tahoma;padding:0;margin:0;}
+      body {padding: 30px; }
+      a {color: #339933; text-decoration: none; }
+      a:hover {color: #F60; }
+      #andyscroll {overflow: hidden;height:36px;background: #F9F9F9;padding: 0 10px;border: 1px solid #E0E0E0;width:300px;}
+      #scrollmessage ul {list-style:none; padding:0; margin:0;}
+      #scrollmessage li {line-height: 18px;}
+    </style>
+  </head>
+  <body>
+    <div class="mainbox">
+      <div class="titlebox">
+        <h1 id="city">载入中......</h1>
+        <h2 id="date_y"></h2>
+      </div>
+      <div class="titlebox" id="sk">
+      </div>
+      <div>
+        <div class="daybox" id="day1">
+        </div>
+        <div class="daybox" id="day2">
+        </div>
+        <div class="daybox" id="day3">
+        </div>
+      </div>
+      <div id="andyscroll" class="titlebox floatfix">
+        <div id="scrollmessage">
+          <ul>
+            <li id="index_co"></li>
+            <li id="index"></li>
+            <li id="index_uv"></li>
+            <li id="index_cl"></li>
+            <li id="index_xc"></li>
+            <li id="index_ls"></li>
+            <li id="index_tr"></li>
+            <li id="index_ag"></li>
+            <li id="index_d"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="titlebox" id="day46">
+      </div>
+      <script>
+        var json=MakeRequest(GetDefaultSkUrl());
+        if (json) {
+          RenderSkToHtml(json);
+        }
+else
+document.getElementById('city').innerHTML="<font color='red'>请求数据错误,请重试。</font>";      
+var json=MakeRequest(GetDefaultUrl());
+if (json) {
+  RenderToHtml(json);
+}
+else
+document.getElementById('city').innerHTML="<font color='red'>请求数据错误,请重试。</font>";
+
+<!--
+try{
+  var stopscroll = false;
+  var scrollElem = document.getElementById("andyscroll");
+
+  with(scrollElem){
+    style.overflow    = 'hidden';
+    noWrap            = true;
+  }
+
+  scrollElem.onmouseover = new Function('stopscroll = true');
+  scrollElem.onmouseout  = new Function('stopscroll = false');
+
+  var preTop         = 0;
+  var currentTop = 0;
+  var stoptime     = 0;
+  var leftElem = document.getElementById("scrollmessage");
+
+  scrollElem.appendChild(leftElem.cloneNode(true));
+  init_srolltext();
+}catch(e){
+}
+
+function init_srolltext(){
+  scrollElem.scrollTop = 0;
+  setInterval('scrollUp()', 40);
+}
+
+function scrollUp(){
+  if(stopscroll) return;
+  currentTop += 1;
+
+  if(currentTop == 19) {
+    stoptime += 1;
+    currentTop -= 1;
+
+    if(stoptime == 30) {
+      currentTop = 0;
+      stoptime = 0;
+    }
+  }else{
+    preTop = scrollElem.scrollTop;
+    scrollElem.scrollTop += 1;
+
+    if (preTop == scrollElem.scrollTop) {
+      scrollElem.scrollTop = 0;
+      scrollElem.scrollTop += 1;
+    }
+  }
+}
+//-->
+</script>
 </body>
 </html>
