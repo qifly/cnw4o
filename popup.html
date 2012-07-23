@@ -6,13 +6,11 @@
     <link rel="stylesheet" type="text/css" href="css/popup.css" />
     <script type="text/javascript" src="function.js"></script>
     <style type="text/css">
-      * {font-size:12px;font-family:Verdana,Tahoma;padding:0;margin:0;}
-      body {padding: 30px; }
       a {color: #339933; text-decoration: none; }
       a:hover {color: #F60; }
-      #andyscroll {overflow: hidden;height:36px;background: #F9F9F9;padding: 0 10px;border: 1px solid #E0E0E0;width:300px;}
+      #andyscroll {overflow: hidden;height:36px;padding: 0 10px;border: 1px solid #E0E0E0;background:#F4F4CC;}
       #scrollmessage ul {list-style:none; padding:0; margin:0;}
-      #scrollmessage li {line-height: 18px;}
+      #scrollmessage li {line-height: 18px;text-align:center;}
     </style>
   </head>
   <body>
@@ -87,7 +85,7 @@ try{
 
 function init_srolltext(){
   scrollElem.scrollTop = 0;
-  setInterval('scrollUp()', 40);
+  setInterval('scrollUp()', 60);
 }
 
 function scrollUp(){
